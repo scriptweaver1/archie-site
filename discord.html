@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>try{if(localStorage.getItem('ageVerified')!=='true')document.documentElement.classList.add('age-locked')}catch(e){document.documentElement.classList.add('age-locked')}</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ArchangelsBabe · Discord</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="discord">
+  <div class="sky" id="sky" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="siteHeader"></header>
+
+  <main id="main">
+    <section class="hero">
+      <span class="halo" aria-hidden="true"></span>
+      <h1>Join the Discord</h1>
+      <p id="dIntro"></p>
+    </section>
+
+    <section class="panel" aria-labelledby="whyH">
+      <h2 id="whyH">Why is it paywalled?</h2>
+      <p id="dWhy"></p>
+    </section>
+
+    <section class="panel" aria-labelledby="howH">
+      <h2 id="howH">How to get in</h2>
+      <ol class="steps" id="dSteps"></ol>
+      <p class="cta"><a class="btn" id="dInvite" href="#" data-ext rel="noopener noreferrer"></a></p>
+    </section>
+
+    <section class="panel" aria-labelledby="faqH">
+      <h2 id="faqH">Questions</h2>
+      <div id="dFaq"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    (function () {
+      var D = SITE_CONFIG.discord, esc = SiteUtil.esc, $ = function (id) { return document.getElementById(id); };
+      $('dIntro').textContent = D.intro;
+      $('dWhy').textContent = D.whyGated;
+      $('dSteps').innerHTML = D.steps.map(function (s) { return '<li><div><b>' + esc(s.title) + '</b>' + esc(s.body) + '</div></li>'; }).join('');
+      $('dFaq').innerHTML = D.faq.map(function (f) { return '<details><summary>' + esc(f.q) + '</summary><p>' + esc(f.a) + '</p></details>'; }).join('');
+      var a = $('dInvite'); if (D.inviteUrl) { a.textContent = D.inviteLabel; a.href = D.inviteUrl; } else { a.parentNode.hidden = true; }
+    })();
+  </script>
+</body>
+</html>

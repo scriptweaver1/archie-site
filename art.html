@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>try{if(localStorage.getItem('ageVerified')!=='true')document.documentElement.classList.add('age-locked')}catch(e){document.documentElement.classList.add('age-locked')}</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ArchangelsBabe · Art Gallery</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="gallery">
+  <div class="sky" id="sky" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="siteHeader"></header>
+
+  <main id="main">
+    <section class="hero">
+      <span class="halo" aria-hidden="true"></span>
+      <h1>Art Gallery</h1>
+      <p>Art made by wonderful artists for these audios. Click a piece to see it bigger, and please go show the artists some love.</p>
+    </section>
+
+    <nav aria-label="Filter by artist"><ul class="pills" id="pills"></ul></nav>
+    <p class="result-count" id="count" role="status" aria-live="polite"></p>
+    <div class="masonry" id="gallery"></div>
+  </main>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Art viewer">
+    <img id="lbImg" alt="">
+    <div class="lb-bar">
+      <div id="lbCap"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button type="button" class="btn small ghost" id="lbPrev">← Prev</button>
+        <button type="button" class="btn small ghost" id="lbNext">Next →</button>
+        <button type="button" class="btn small" id="lbClose">Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>
