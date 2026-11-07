@@ -140,8 +140,10 @@
     const a = e.target.closest('a[data-ext]');
     if (a && !(e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1)) {
       e.preventDefault();
-      const w = window.open(a.href, '_blank', 'noopener,noreferrer');
-      if (!w) location.href = a.href;
+      // 'noopener' in the features string makes window.open return null, which used to trigger the
+      // fallback below and navigate this tab away too. Open normally, then cut the opener link.
+      const w = window.open(a.href, '_blank');
+      if (w) { try { w.opener = null; } catch (_) {} }
     }
   });
   document.addEventListener('error', e => {
