@@ -7,7 +7,7 @@
 
 window.SITE_CONFIG = {
   siteName: 'ArchangelsBabe',
-  tagline: 'Heavenly audios, written and voiced with love.',
+  tagline: 'Sinning was Never so Sweet...',
   exitUrl: 'https://www.google.com',
   useApi: false,         // false = never call /api (front-end-only demo, reads data/*.json)
   showCardArt: false,   // true = show cover art + artist credit on Masterlist cards (hidden for now)
